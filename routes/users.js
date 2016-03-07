@@ -14,11 +14,16 @@ router.post('/', function(req, res, next) {
       email: req.body.email,
       set_active: 'true'
     }, function (err, resTwo) {
-      if (err) { res.send(err); }
-      res.render(index);
+      if (err) {
+        res.render('error', {
+          message: err.message,
+          error: {}
+        });
+      }
+      res.redirect('learnjs.azurewebsites.net');
     });
   } else {
-    res.statusCode(400).send('respond with a resource');
+    res.redirect('learnjs.azurewebsites.net')
   }
 });
 
