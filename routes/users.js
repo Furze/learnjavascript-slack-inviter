@@ -6,7 +6,7 @@ router.post('/', function(req, res, next) {
   if(req.body.hasOwnProperty('email')){
     var SlackClient = require('slack-api-client');
     var slack = new SlackClient(process.env.SLACK_TOKEN);
-    slack.chat.postMessage({
+    slack.api.chat.postMessage({
       'channel': 'registrations',
       'message': 'Inviting ' + req.body.email
     });
