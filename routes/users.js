@@ -8,7 +8,7 @@ router.post('/', function(req, res, next) {
     var slack = new SlackClient(process.env.SLACK_TOKEN);
     slack.api.chat.postMessage({
       'channel': 'registrations',
-      'message': 'Inviting ' + req.body.email
+      'text': 'Inviting ' + req.body.email
     });
     slack.api.users.invite({
       email: req.body.email,
