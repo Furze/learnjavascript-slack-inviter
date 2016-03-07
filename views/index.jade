@@ -1,10 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-
-  div
-    form(method='post' action='/invite')
-      div Email Address:
-        input(type='text' name='email')
+  div.col-lg-12
+    div.page-header
+      h1.dialogs Learn JavaScript Slack Inviter
+  div.col-sm-offset-1.col-sm-10
+    form.form-horizontal(method='post' action='/invite')
+      fieldset
+        legend Sign up for our Slack Team
+        div.form-group
+          label.col-sm-2.control-label(for="inputEmail") Email
+          div.col-sm-6
+            input.form-control#inputEmail(type="email" placeholder="email" name="email")
+          div.col-sm-4
+            button.btn.btn-primary.pull-right(type="submit") Submit
